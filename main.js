@@ -7,11 +7,6 @@ const MAIN = document.querySelector('.main'),
 
 let peaperH = PEAPER.clientHeight;
 
-//console.log(MAIN);
-//
-//simpleBarS.addEventListener('scroll', () => {
-//    MAIN.style.backgroundColor = 'red';
-//})
 
 simpleBarS.addEventListener('scroll', function() {
     
