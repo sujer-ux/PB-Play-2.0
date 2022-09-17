@@ -12,7 +12,6 @@ simpleBarS.addEventListener('scroll', function() {
     
     let setH = peaperH - simpleBarS.scrollTop;
     function setS(n) { PEAPER.style.height = n + 'px'};
-    console.log(MAIN);
     
     function step() {
         if (setH <= 55) {
@@ -32,8 +31,7 @@ simpleBarS.addEventListener('scroll', function() {
 
 function textAnim(ani) {
     let i = 0;
-        
-        
+    
     if (MAIN.classList.contains('mini')) {
         while (i < names.length) {
             names[i].style.left = '42px';
