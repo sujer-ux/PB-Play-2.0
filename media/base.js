@@ -1,0 +1,38 @@
+let base = {
+    trackItem: [
+        'Love Will Tear Apart',
+        'Моя',
+        'Крайности',
+        'Твоего балкона свет!',
+        'За углом',
+        'Никотиновая доза',
+        'Мутные пятна',
+    ],
+    trackArtst: [
+        'Alicia Widar',
+        'kameraxstyle',
+        'Кладбище Черновиков',
+        'Пупок Комсомола',
+        'Пустецкий',
+        'СуШ(07)',
+        'nutakoe',
+    ],
+    image: [
+        'https://sujer-ux.github.io/pb.su/image/03.jpg',
+        'https://sujer-ux.github.io/pb.su/image/04.jpg',
+        'https://sujer-ux.github.io/pb.su/image/05.jpg',
+        'https://sujer-ux.github.io/pb.su/image/06.jpg',
+        'https://sujer-ux.github.io/pb.su/image/sujer-ux.jpg',
+        'https://sujer-ux.github.io/pb.su/image/sush07.jpg',
+        'https://sujer-ux.github.io/pb.su/image/nutakoe_pyatna.jpg',
+    ],
+    song: [
+        'https://sujer-ux.github.io/pb.su/songs/widar_love.mp3',
+        'https://sujer-ux.github.io/pb.su/songs/kameraxstyle_moya.mp3',
+        'https://sujer-ux.github.io/pb.su/songs/kch_krainosti.mp3',
+        'https://sujer-ux.github.io/pb.su/songs/komsomola_svet.mp3',
+        'https://sujer-ux.github.io/pb.su/songs/pustetskiy_uglom.mp3',
+        'https://sujer-ux.github.io/pb.su/songs/sush_doza.mp3',
+        'https://sujer-ux.github.io/pb.su/songs/nutakoe_pyatna.mp3',
+    ],
+};

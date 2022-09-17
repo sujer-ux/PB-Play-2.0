@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(20, 20, 20);
+    padding: 1px;
+}
+
+.logo-bar {
+    position: absolute;
+    top: 34px;
+    left: calc(50% + 169px);
+    width: 48px;
+    height: 140px;
+}
+
+.avatar {
+    width: 100%;
+    height: 48px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-image: url(image-av.jpg);
+    background-size: cover;
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.44);
+    opacity: 0.8;
+}
+
+.nameb {
+    width: 100%;
+    height: 10px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 3px;
+    font-weight: 300;
+}
+
+.main {
+    width: 300px;
+    height: 89vh;
+    background-color: #171717;
+    margin: 5vh auto;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 7px;
+}
+
+.main::-webkit-scrollbar {
+  width: 0;
+}
+
+.top {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 0;
+}
+
+.top-wrap {
+    width: 100%;
+    background-color: #171717;
+    position: relative;
+    box-shadow: 0 0 15px -4px rgba(0, 0, 0, 0.28);
+}
+
+.bottom {
+    margin-top: 434px;
+    color: rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.bottom p {
+    padding:1px 10px;
+}
+
+.peaper {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://sujer-ux.github.io/pb.su/image/nutakoe_pyatna.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.2s;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.mini .image {
+    width: 35px;
+    height: 35px;
+    top: 23%;
+    left: 13px;
+    border-radius: 5px;
+}
+
+.void {
+    width: 100%;
+    height: 70px;
+    transition: height 0.2s;
+    position: relative;
+}
+
+.mini .void {
+    height: 0;
+}
+
+.test {
+    width: 100%;
+    height: 59px;
+    position: absolute;
+    top: calc(50% - 28px);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.mini .test {
+    top: -51px;
+    transition: all 0.2s;
+}
+
+.void2 {
+    width: 100%;
+    height: 109px;
+}
+
+.info {
+    width: 100%;
+    color: white;
+}
+
+.ind {
+    width: 266px;;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.ind div {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.track {
+    font-size: 18px;
+    color: #d1d1d1;
+}
+
+.art {
+    font-size: 15px;
+    color: #d33030;
+}
+
+.mini .track {
+    font-size: 14px;
+    top: 2px;
+}
+
+
+.mini .art {
+    font-size: 13px;
+    top: -5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

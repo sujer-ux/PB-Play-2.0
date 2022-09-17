@@ -1,0 +1,98 @@
+.timeWrap {
+    width: 100%;
+/*    height: 84px;*/
+    padding: 0px 13px 12px 13px;
+}
+
+
+.moveBlock {
+    width: 100%;
+    height: 18px;
+/*    outline: 1px solid #313131;*/
+    margin-bottom: -1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.timeBlock {
+    width: 100%;
+    height: 24px;
+/*    outline: 1px solid #313131;*/
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 11px;
+}
+
+.timeLine {
+    width: 100%;
+    height: 5px;
+    background-color: #272727;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all .1s;
+}
+
+/*
+.moveBlock:hover > .timeLine {
+    height: 7px;
+}
+*/
+
+.timeProgress {
+    width: 10%;
+    height: 100%;
+    background-color: #d33030;
+}
+
+.timeRange {
+    width: 15px;
+    height: 15px;
+    background-color: #d33030;
+    position: absolute;
+    border-radius: 10px;
+    top: calc(50% - 7.5px);
+    left: 10%;
+    margin-left: -7.5px;
+    transition: all .1s;
+    transform: scale(0);
+}
+
+.moveBlock:hover > .timeRange {
+    transform: scale(1);
+}
+
+.bt {
+/*    outline: 1px solid #313131;*/
+    width: 154px;
+    height: 22px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+
+}
+
+.btn {
+    width: 22px;
+    height: 100%;
+/*    outline: 1px solid #383838;*/
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
