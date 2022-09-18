@@ -49,13 +49,16 @@ bt.addEventListener('click', function(e) {
 })
 
 function loadMeta(toPlay) {
+    //change audio
     audio.src = base.song[SongID];
     
+    //is play
     if (toPlay === 'play') {
         audio.play();
         bt.childNodes[5].classList.add('played');
     };
     
+    //preload images
     let i = SongID;
     while (i < SongID + 3) {
         let image = new Image();
@@ -64,6 +67,7 @@ function loadMeta(toPlay) {
     }
     
     
+    //change image
     let image = new Image();
     image.src = base.image[SongID];
     image.style.opacity = '0';
@@ -80,9 +84,11 @@ function loadMeta(toPlay) {
     }
     
     
-
+    //change text
     trackName.innerHTML = base.trackItem[SongID];
     artName.innerHTML = base.trackArtst[SongID];
+    
+    //text to centre
     textAnim();
 }
 
