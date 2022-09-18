@@ -101,12 +101,25 @@ body {
     top: 0px;
     left: 0px;
     overflow: hidden;
+    background-color: #0f0f0f;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20010904//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'%3E%3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' width='90.000000pt' height='90.000000pt' viewBox='0 0 90.000000 90.000000' preserveAspectRatio='xMidYMid meet'%3E%3Cmetadata%3E%0ACreated by potrace 1.16, written by Peter Selinger 2001-2019%0A%3C/metadata%3E%3Cg transform='translate(0.000000,90.000000) scale(0.100000,-0.100000)'%0Afill='%232e2e2e' stroke='none'%3E%3Cpath d='M540 814 c-58 -13 -115 -26 -127 -29 -21 -5 -22 -9 -25 -195 -3 -216%0A-3 -216 -84 -229 -87 -13 -124 -54 -124 -136 0 -85 50 -135 135 -135 54 0 95%0A21 119 60 13 24 16 62 16 239 0 210 0 211 23 216 12 3 63 14 112 25 50 11 100%0A22 113 25 21 5 22 10 22 95 l0 90 -37 -1 c-21 0 -85 -11 -143 -25z'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+}
+
+.mini .image {
+    background-size: 66%;
+    transition: all 0.2s;
 }
 
 .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    opacity: 1;
+    transition: opacity .2s;
 }
 
 .mini .image {

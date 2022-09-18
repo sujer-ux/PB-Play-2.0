@@ -58,14 +58,7 @@ function textAnim(ani) {
 }
 
 
-window.onload = textAnim;
 
-
-//document.addEventListener('click', function() {
-//    names[0].innerHTML = 'Жизнь';
-//    names[1].innerHTML = 'Пионерлагерь gskmyfz hfleuf пыльная радуга';
-//    textAnim();
-//})
 
 
 
