@@ -147,6 +147,7 @@ function hideBlock(e) {
 }
 
 
+var back = 1;
 let volH = volEv.offsetHeight;
 volEv.addEventListener('pointerdown', function(e) {
     setVome(e);
@@ -159,6 +160,9 @@ volEv.addEventListener('pointerdown', function(e) {
         document.removeEventListener('pointermove', setVome);
         document.querySelector('body').classList.remove('un-select');
         volBtn.addEventListener('pointerout', hideBlock);
+        if (audio.volume >= 1) {
+            back = audio.volume;
+        }
         
         let check = e.target != volMove && e.target != volBtn && e.target != volValue[0] && e.target != volValue[1] && e.target != volWrap;
         if (check) {
@@ -187,12 +191,12 @@ function setVome(e) {
     
     let i = 0;
     while (i < volValue.length) {
-        volValue[i].innerHTML = Math.round(setH);
+        volValue[i].innerHTML = Math.ceil(setH);
         i++
     }
 }
 
-let back = 1;
+
 muteBtn.addEventListener('click', function() {
     if (audio.volume == 0) {
         audio.volume = back;
@@ -200,7 +204,7 @@ muteBtn.addEventListener('click', function() {
         volMove.style.height = back * 100 + '%';
         let i = 0;
         while (i < volValue.length) {
-            volValue[i].innerHTML = Math.round(back*100);
+            volValue[i].innerHTML = Math.ceil(back*100);
             i++
         }
     } else {
@@ -210,7 +214,7 @@ muteBtn.addEventListener('click', function() {
         volMove.style.height = 0 + '%';
         let i = 0;
         while (i < volValue.length) {
-            volValue[i].innerHTML = Math.round(0);
+            volValue[i].innerHTML = Math.ceil(0);
             i++
         }
     }
