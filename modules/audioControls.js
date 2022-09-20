@@ -149,6 +149,7 @@ function hideBlock(e) {
 
 var back = 1;
 let volH = volEv.offsetHeight;
+let wheelV = 0;
 volEv.addEventListener('pointerdown', function(e) {
     setVome(e);
     volBtn.removeEventListener('pointerout', hideBlock);
@@ -182,6 +183,7 @@ function setVome(e) {
     
     volMove.style.height = setH + '%';
     audio.volume = setH / 100;
+    wheelV = 1000 - (setH * 10);
     
     if (audio.volume == 0) {
         volBtn.classList.add('muted');
@@ -196,6 +198,17 @@ function setVome(e) {
     }
 }
 
+if (volBtn.addEventListener) {
+    if ('onwheel' in document) {
+        volBtn.addEventListener("wheel", onWheel);
+    } else if ('onmousewheel' in document) {
+        volBtn.addEventListener("mousewheel", onWheel);
+    } else {
+        volBtn.addEventListener("MozMousePixelScroll", onWheel);
+    }
+    } else {
+        volBtn.attachEvent("onmousewheel", onWheel);
+    }
 
 muteBtn.addEventListener('click', function() {
     if (audio.volume == 0) {
@@ -220,6 +233,35 @@ muteBtn.addEventListener('click', function() {
     }
     
 })
+
+function onWheel(e) {
+    e = e || window.event;
+    let delta = e.deltaY || e.detail || e.wheelDelta;
+    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+    
+    wheelV = minMax(wheelV + delta, 0, 1000);
+    let crate = wheelV / 10;
+    
+    let setH;
+    if (wheelV > 0) {
+        setH = minMax(100 - crate, 0, 100);
+    } else {
+        setH = minMax(100 - (crate + crate), 0, 100);
+    }
+    
+    volMove.style.height = setH + '%';
+    audio.volume = setH / 100;
+    
+    let i = 0;
+    while (i < volValue.length) {
+        volValue[i].innerHTML = Math.ceil(minMax(setH, 0, 100));
+        i++
+    }
+    
+    if (audio.volume >= 1) {
+        back = audio.volume;
+    }
+}
 
 window.onload = loadMeta;
 
