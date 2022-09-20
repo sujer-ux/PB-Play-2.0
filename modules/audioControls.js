@@ -4,20 +4,25 @@ let   img = document.querySelector('.image'),
       artName = document.querySelector('.art'),
       current = document.querySelector('.current'),
       duration = document.querySelector('.duration'),
-      timeBar = document.querySelector('.timeProgress'),
-      range = document.querySelector('.timeRange');
+      range = document.querySelector('.timeRange'),
+      volBtn = document.querySelector('.vol'),
+      volWrap = document.querySelector('.volWrap'),
+      volEv = document.querySelector('.setVol'),
+      volMove = document.querySelector('.toVol'),
+      volValue = document.getElementsByClassName('value'),
+      muteBtn = document.querySelector('.mute');
 
 
 let SongID = 0;
 let audio = new Audio(base.song[SongID]);
+
 
 bt.addEventListener('click', function(e) {
     let btn = e.target;
       
     if (btn.classList.contains('play')) {
         if (audio.paused) {
-            audio.play();
-            btn.classList.add('played');
+            play(audio);
         } else {
             audio.pause();
             btn.classList.remove('played');
@@ -42,9 +47,10 @@ bt.addEventListener('click', function(e) {
         } else if (SongID < 0) {
             SongID = base.trackItem.length - 1;
         }
+        progress.style.width = '0%';
+        trackName.innerHTML = '';
+        artName.innerHTML = '';
         loadMeta('play');
-        
-//        console.log(SongID);
     }
 })
 
@@ -52,10 +58,9 @@ function loadMeta(toPlay) {
     //change audio
     audio.src = base.song[SongID];
     
-    //is play
+    //if play
     if (toPlay === 'play') {
-        audio.play();
-        bt.childNodes[5].classList.add('played');
+        play(audio);
     };
     
     //preload images
@@ -70,9 +75,7 @@ function loadMeta(toPlay) {
     //change image
     let image = new Image();
     image.src = base.image[SongID];
-    image.style.opacity = '0';
     image.addEventListener('load', function() {
-        image.style.opacity = '1';
         img.append(image);
     });
     if (toPlay === 'play') {
@@ -80,7 +83,6 @@ function loadMeta(toPlay) {
         setTimeout(() => {
             img.childNodes[1].remove()
         },200);
-        console.log(img.childNodes);
     }
     
     
@@ -88,10 +90,132 @@ function loadMeta(toPlay) {
     trackName.innerHTML = base.trackItem[SongID];
     artName.innerHTML = base.trackArtst[SongID];
     
+    
+    //change audio time
+    duration.innerHTML = '00:00';
+    audio.addEventListener('loadedmetadata', function() {
+        current.innerHTML = '00:00';
+        duration.innerHTML = formatted(audio.duration);
+    })
+                           
+    
     //text to centre
     textAnim();
 }
 
+function play(audio) {
+    audio.play();
+    bt.childNodes[5].classList.add('played');
+}
+
+audio.onended = function() {
+    stop(audio);
+}
+
+function stop(elem) {
+    elem.pause();
+    elem.currentTime = 0;
+    bt.childNodes[5].classList.remove('played');
+    progress.style.transition = 'all 0.2s';
+    
+    setTimeout(() => {
+        progress.style.transition = null;
+    }, 200);
+}
+
+function formatted(input) {
+    let timeStamp = input;
+    let minutes = Math.floor(timeStamp / 60);
+    let seconds = Math.floor(timeStamp % 60);
+    let formatted = [
+        minutes.toString().padStart (2, '0'),
+        seconds.toString().padStart (2, '0')
+    ].join(':');
+    return formatted;
+}
+
+volBtn.addEventListener('pointerover', function(e) {
+    volWrap.style.height = '102px';
+    volWrap.style.opacity = 1;
+})
+
+volBtn.addEventListener('pointerout', hideBlock)
+
+function hideBlock(e) {
+    volWrap.style.height = '0px';
+    volWrap.style.opacity = 0;
+}
+
+
+let volH = volEv.offsetHeight;
+volEv.addEventListener('pointerdown', function(e) {
+    setVome(e);
+    volBtn.removeEventListener('pointerout', hideBlock);
+    document.addEventListener('pointermove', setVome);
+    document.addEventListener('pointerup', pup);
+    document.querySelector('body').classList.add('un-select');
+    
+    function pup(e) {
+        document.removeEventListener('pointermove', setVome);
+        document.querySelector('body').classList.remove('un-select');
+        volBtn.addEventListener('pointerout', hideBlock);
+        
+        let check = e.target != volMove && e.target != volBtn && e.target != volValue[0] && e.target != volValue[1] && e.target != volWrap;
+        if (check) {
+            hideBlock(e);
+        }
+        
+        setTimeout(function() {
+            document.removeEventListener('pointerup', pup);
+            
+        })
+    }
+});
+
+function setVome(e) {
+    let offsY = 97 - (e.pageY - volEv.getBoundingClientRect().y),
+        setH = minMax((100 * offsY) / volH, 0, 100);
+    
+    volMove.style.height = setH + '%';
+    audio.volume = setH / 100;
+    
+    if (audio.volume == 0) {
+        volBtn.classList.add('muted');
+    } else {
+        volBtn.classList.remove('muted');
+    }
+    
+    let i = 0;
+    while (i < volValue.length) {
+        volValue[i].innerHTML = Math.round(setH);
+        i++
+    }
+}
+
+let back = 1;
+muteBtn.addEventListener('click', function() {
+    if (audio.volume == 0) {
+        audio.volume = back;
+        volBtn.classList.remove('muted');
+        volMove.style.height = back * 100 + '%';
+        let i = 0;
+        while (i < volValue.length) {
+            volValue[i].innerHTML = Math.round(back*100);
+            i++
+        }
+    } else {
+        back = audio.volume;
+        audio.volume = 0;
+        volBtn.classList.add('muted');
+        volMove.style.height = 0 + '%';
+        let i = 0;
+        while (i < volValue.length) {
+            volValue[i].innerHTML = Math.round(0);
+            i++
+        }
+    }
+    
+})
 
 window.onload = loadMeta;
 

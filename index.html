@@ -47,19 +47,36 @@
                         <div class="moveBlock">
                             <div class="timeLine">
                                 <div class="timeProgress"></div>
+                                <div class="mouseHover"></div>
+                                <div class="timeLoad">
+                                    <div class="ts"></div>
+                                </div>
                             </div>
                             <div class="timeRange"></div>
+                            <div class="hoverTime">01:02</div>
                         </div>
                         <div class="timeBlock">
-                            <div class="current">00:00</div>
+                            <div class="current time">--:--</div>
                             <div class="bt">
                                 <div class="btn repeat"></div>
                                 <div class="btn prew"></div>
                                 <div class="btn play"></div>
                                 <div class="btn next"></div>
-                                <div class="btn vol"></div>
+                                <div class="vol btn">
+                                   <div class="mute"></div>
+                                    <div class="volWrap un-select">
+                                        <div class="setVol">
+                                            <div class="toVol">
+                                                <div class="value value1">
+                                                    100
+                                                </div>
+                                            </div>
+                                            <div class="value value2">100</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="duration">00:00</div>
+                            <div class="duration time">--:--</div>
                         </div>
                     </div>
                 </div>
@@ -75,5 +92,6 @@
     <script src="media/base.js"></script>
     <script src="main.js"></script>
     <script src="modules/audioControls.js"></script>
+    <script src="modules/timeBar.js"></script>
 </body>
 </html>

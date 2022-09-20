@@ -14,8 +14,8 @@ simpleBarS.addEventListener('scroll', function() {
     function setS(n) { PEAPER.style.height = n + 'px'};
     
     function step() {
-        if (setH <= 55) {
-            setH = 55;
+        if (setH <= 50) {
+            setH = 50;
             setS(setH);
             MAIN.classList.add('mini');
             textAnim(true);

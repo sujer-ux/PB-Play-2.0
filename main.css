@@ -11,6 +11,16 @@ body {
     box-sizing: border-box;
 }
 
+.un-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
 .app {
     width: 100%;
     height: 100vh;
@@ -125,7 +135,7 @@ body {
 .mini .image {
     width: 35px;
     height: 35px;
-    top: 23%;
+    top: 21%;
     left: 13px;
     border-radius: 5px;
 }
@@ -152,7 +162,7 @@ body {
 }
 
 .mini .test {
-    top: -52px;
+    top: -50px;
     transition: all 0.2s;
 }
 
@@ -181,14 +191,19 @@ body {
     white-space: nowrap;
 }
 
+.mini .ind {
+    overflow: visible;
+}
+
 .track {
     font-size: 18px;
-    color: #d1d1d1;
+    color: #ffffff;
 }
 
 .art {
     font-size: 15px;
-    color: #d33030;
+/*    color: #d33030;*/
+    color: #eb3b3b;
 }
 
 .mini .track {
@@ -199,10 +214,14 @@ body {
 
 .mini .art {
     font-size: 13px;
-    top: -6px;
+    top: -4px;
+    z-index: 2;
 }
 
-
+.time {
+    position: relative;
+    top: -3px;
+}
 
 
 
