@@ -13,7 +13,8 @@ let   img = document.querySelector('.image'),
       muteBtn = document.querySelector('.mute');
 
 
-let SongID = 0;
+let SongID = 0,
+    preID = [];
 let audio = new Audio(base.song[SongID]);
 
 
@@ -28,9 +29,9 @@ bt.addEventListener('click', function(e) {
             btn.classList.remove('played');
         }
     } else if (btn.classList.contains('next')) {
-        switcher(SongID + 1);
+        switcher(e, SongID + 1);
     } else if (btn.classList.contains('prew')) {
-        switcher(SongID - 1);
+        switcher(e, SongID - 1);
     } else if (btn.classList.contains('repeat')) {
         
         
@@ -40,7 +41,7 @@ bt.addEventListener('click', function(e) {
     }
     
     
-    function switcher(id) {
+    function switcher(e, id) {
         SongID = id;
         if (SongID > base.trackItem.length - 1) {
             SongID = 0;
@@ -50,11 +51,14 @@ bt.addEventListener('click', function(e) {
         progress.style.width = '0%';
         trackName.innerHTML = '';
         artName.innerHTML = '';
-        loadMeta('play');
+        loadMeta(e, 'play');
     }
 })
 
-function loadMeta(toPlay) {
+function loadMeta(e, toPlay) {
+    preID[preID.length] = SongID;
+    let preT = preID.at(-2);
+    
     //change audio
     audio.src = base.song[SongID];
     
@@ -73,18 +77,27 @@ function loadMeta(toPlay) {
     
     
     //change image
-    let image = new Image();
-    image.src = base.image[SongID];
-    image.addEventListener('load', function() {
-        img.append(image);
-    });
-    if (toPlay === 'play') {
-        img.childNodes[1].style.opacity = '0';
-        setTimeout(() => {
-            img.childNodes[1].remove()
-        },200);
+    var image = new Image();
+    
+    if (base.image[SongID] != '') {
+        image.src = base.image[SongID];
+        image.addEventListener('load', function() {
+            img.append(image);
+        });
     }
     
+    
+    if (preT != undefined) {
+        if (base.image[preT] != '') {
+            let images = img.children;
+            images[0].style.opacity = 0;
+            setTimeout(() => {
+                images[0].remove();
+            }, 200); 
+        } 
+    }
+    
+
     
     //change text
     trackName.innerHTML = base.trackItem[SongID];
