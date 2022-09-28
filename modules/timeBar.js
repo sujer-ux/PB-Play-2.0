@@ -30,7 +30,9 @@ moveBar.addEventListener('pointermove', function(e) {
 
 
 
-moveBar.addEventListener('pointerdown', function(e) {
+moveBar.addEventListener('pointerdown', mainF);
+
+function mainF(e) {
     move(e, this);
     timeMove(e);
     time.style.opacity = '1';
@@ -38,7 +40,7 @@ moveBar.addEventListener('pointerdown', function(e) {
     document.querySelector('body').classList.add('un-select');
     document.addEventListener('pointermove', move);
     document.addEventListener('pointermove', timeMove);
-    document.addEventListener('pointerup', reEvents)
+    document.addEventListener('pointerup', reEvents);
     
     function reEvents(e) {
         document.removeEventListener('pointermove', move);
@@ -68,9 +70,7 @@ moveBar.addEventListener('pointerdown', function(e) {
         let offsX = e.pageX - moveBar.getBoundingClientRect().x;
         audio.currentTime = audio.duration * offsX / moveW;
     }
-    
-})
-
+}
 
 
 

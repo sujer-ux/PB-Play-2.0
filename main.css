@@ -70,7 +70,10 @@ body {
 }
 
 .main::-webkit-scrollbar {
-  width: 0;
+    width: 0;
+}
+.main::-moz-scrollbar {
+    width: 0;
 }
 
 .top {
@@ -78,6 +81,7 @@ body {
     position: sticky;
     top: 0;
     height: 0;
+    z-index: 3;
 }
 
 .top-wrap {
@@ -88,7 +92,7 @@ body {
 }
 
 .bottom {
-    margin-top: 425px;
+    margin-top: 417px;
     color: rgba(255, 255, 255, 0.08);
     text-align: center;
 }
