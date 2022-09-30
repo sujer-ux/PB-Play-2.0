@@ -60,7 +60,7 @@ let base = {
         'media/thumbnails_350/14_350.jpg',
         'media/thumbnails_350/12_350.jpg',
         'media/thumbnails_350/10_350.jpg',
-        'media/thumbnails_350/4_350.jpg',
+        'media/thumbnails_350/7_350.jpg',
         'media/thumbnails_350/6_350.jpg',
         'media/thumbnails_350/16_350.jpg',
         'media/thumbnails_350/8_350.jpg',
