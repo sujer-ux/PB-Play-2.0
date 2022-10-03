@@ -4,7 +4,7 @@ let playListMain = document.querySelector('.playList');
 function loadList(elem) {
     let i = 0;
     while (i < base.song.length) {
-        elem.insertAdjacentHTML('beforeend',
+        elem.insertAdjacentHTML('beforeend', //=>
             '<div class="section" data-id="'+i+'">'
                 +'<div class="cover">'
                     +'<img src="'+base.image60[i]+'" alt="">'
