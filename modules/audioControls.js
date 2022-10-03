@@ -29,9 +29,9 @@ bt.addEventListener('click', function(e) {
             btn.classList.remove('played');
         }
     } else if (btn.classList.contains('next')) {
-        switcher(e, SongID + 1);
+        switcher(SongID + 1);
     } else if (btn.classList.contains('prew')) {
-        switcher(e, SongID - 1);
+        switcher(SongID - 1);
     } else if (btn.classList.contains('repeat')) {
         
         
@@ -39,23 +39,24 @@ bt.addEventListener('click', function(e) {
         
         
     }
-    
-    
-    function switcher(e, id) {
-        SongID = id;
-        if (SongID > base.trackItem.length - 1) {
-            SongID = 0;
-        } else if (SongID < 0) {
-            SongID = base.trackItem.length - 1;
-        }
-        progress.style.width = '0%';
-        trackName.innerHTML = '';
-        artName.innerHTML = '';
-        loadMeta(e, 'play');
-    }
 })
 
-function loadMeta(e, toPlay) {
+
+function switcher(id) {
+    SongID = id;
+    if (SongID > base.trackItem.length - 1) {
+        SongID = 0;
+    } else if (SongID < 0) {
+        SongID = base.trackItem.length - 1;
+    }
+    progress.style.width = '0%';
+    trackName.innerHTML = '';
+    artName.innerHTML = '';
+    loadMeta('play');
+}
+
+
+function loadMeta(toPlay) {
     preID[preID.length] = SongID;
     let preT = preID.at(-2);
     
@@ -65,7 +66,10 @@ function loadMeta(e, toPlay) {
     //if play
     if (toPlay === 'play') {
         play(audio);
-    };
+    } else {
+        loadList(playListMain);
+        addE(playListMain);
+    }
     
     //preload images
     let i = SongID;
@@ -114,6 +118,10 @@ function loadMeta(e, toPlay) {
     
     //text to centre
     textAnim();
+    
+    //
+    switchSection(playListMain, preID[preID.length - 1]);
+
 }
 
 function play(audio) {
