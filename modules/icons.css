@@ -6,6 +6,16 @@
     background-position: center;
 }
 
+.play-ico {
+    background-image: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='utf-8'?%3E%3C!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 163.9 163.9' style='enable-background:new 0 0 163.9 163.9;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0{fill:%23FFF;} %3C/style%3E%3Cg%3E%3Cpath class='st0' d='M34.9,3.6C20.1-4.9,8.1,2.1,8.1,19.1v125.6c0,17,12,24,26.8,15.5l109.8-63c14.8-8.5,14.8-22.2,0-30.7L34.9,3.6 z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.ugu-played .play-ico {
+    background-image: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='utf-8'?%3E%3C!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 38.3 47.6' style='enable-background:new 0 0 38.3 47.6;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0{fill:%23FFFFFF;} %3C/style%3E%3Cg%3E%3Cpath class='st0' d='M13.3,41c0,3.7-3,6.6-6.6,6.6l0,0C3,47.6,0,44.6,0,41V6.6C0,3,3,0,6.6,0l0,0c3.7,0,6.6,3,6.6,6.6V41z'/%3E%3Cpath class='st0' d='M38.1,41c0,3.7-3,6.6-6.6,6.6l0,0c-3.7,0-6.6-3-6.6-6.6V6.6c0-3.7,3-6.6,6.6-6.6l0,0c3.7,0,6.6,3,6.6,6.6V41z' /%3E%3C/g%3E%3C/svg%3E");
+    background-size: 12px;
+    background-position: center;
+}
+
 .play {
     background-image: url("data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='utf-8'?%3E%3C!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 163.9 163.9' style='enable-background:new 0 0 163.9 163.9;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0{fill:%23FFF;} %3C/style%3E%3Cg%3E%3Cpath class='st0' d='M34.9,3.6C20.1-4.9,8.1,2.1,8.1,19.1v125.6c0,17,12,24,26.8,15.5l109.8-63c14.8-8.5,14.8-22.2,0-30.7L34.9,3.6 z'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 81%;

@@ -24,9 +24,11 @@ bt.addEventListener('click', function(e) {
     if (btn.classList.contains('play')) {
         if (audio.paused) {
             play(audio);
+            document.querySelector('.ugu').classList.add('ugu-played');
         } else {
             audio.pause();
             btn.classList.remove('played');
+            document.querySelector('.ugu').classList.remove('ugu-played');
         }
     } else if (btn.classList.contains('next')) {
         switcher(SongID + 1);

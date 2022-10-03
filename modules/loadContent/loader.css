@@ -25,6 +25,7 @@
     width: 35px;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
 }
 
 .cover img {
@@ -64,6 +65,35 @@
 
 .ugu {
     transition: all .2s;
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(29, 29, 29);
 }
 
+.play-ico {
+    position: absolute;
+    color: wheat;
+    background-color: rgb(0, 0, 0);
+    width: 35px;
+    height: 35px;
+    background-position: 12px center;
+    background-size: 14px;
+    background-repeat: no-repeat;
+    opacity: 0.0;
+}
+
+.ugu .play-ico {
+    transition: all .2s;
+    opacity: 0.6;
+}
+
+.over .play-ico {
+    transition: all .2s;
+    opacity: 0.6;
+}
+
+.over {
+    background-color: #141414;
+}
+
+.over-played {
+    background-color: #191919;
+}
