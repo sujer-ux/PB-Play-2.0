@@ -54,13 +54,14 @@ function switcher(id) {
     progress.style.width = '0%';
     trackName.innerHTML = '';
     artName.innerHTML = '';
-    loadMeta('play');
+    return loadMeta('play');
 }
+
 
 
 function loadMeta(toPlay) {
     preID[preID.length] = SongID;
-    let preT = preID.at(-2);
+    var preT = preID.at(-2);
     
     //change audio
     audio.src = base.song[SongID];
@@ -72,7 +73,7 @@ function loadMeta(toPlay) {
         loadList(playListMain);
         addE(playListMain);
     }
-    
+    console.log(preT);
     //preload images
     let i = SongID;
     while (i < SongID + 3) {
@@ -124,6 +125,8 @@ function loadMeta(toPlay) {
     //
     switchSection(playListMain, preID[preID.length - 1]);
 
+    
+    return preT;
 }
 
 function play(audio) {
@@ -139,6 +142,7 @@ function stop(elem) {
     elem.pause();
     elem.currentTime = 0;
     bt.childNodes[5].classList.remove('played');
+    document.querySelector('.ugu').classList.remove('ugu-played');
     progress.style.transition = 'all 0.2s';
     
     setTimeout(() => {
@@ -287,11 +291,6 @@ function onWheel(e) {
 }
 
 window.onload = loadMeta;
-
-
-
-
-
 
 
 

@@ -86,7 +86,7 @@
 }
 
 .over .play-ico {
-    transition: all .2s;
+    transition: opacity .2s;
     opacity: 0.6;
 }
 

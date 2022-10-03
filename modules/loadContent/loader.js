@@ -29,7 +29,8 @@ function addE(elem) {
             if (!this.classList.contains('ugu')) {
                 switcher(Number(this.getAttribute('data-id')));
                 this.classList.remove('over');
-                this.classList.add('ugu-played');;
+                this.classList.add('ugu-played');
+                sections[preID.at(-2)].classList.remove('ugu-played');
             } else {
                 if (audio.paused) {
                     play(audio);
