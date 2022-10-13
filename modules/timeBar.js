@@ -12,6 +12,26 @@ function timeUpdate() {
     current.innerHTML = formatted(this.currentTime);
 }
 
+audio.addEventListener('loadedmetadata', function() {
+    durationUpdate();
+    audio.addEventListener('timeupdate', durationUpdate);
+});
+
+
+function durationUpdate() {
+    duration.innerHTML = `-${formatted(base.duration[SongID] - audio.currentTime)}`;
+}
+
+duration.addEventListener('pointerover', function() {
+    audio.removeEventListener('timeupdate', durationUpdate);
+    duration.innerHTML = formatted(base.duration[SongID]);
+});
+duration.addEventListener('pointerout', function() {
+    audio.addEventListener('timeupdate', durationUpdate);
+    duration.innerHTML = `-${formatted(base.duration[SongID] - audio.currentTime)}`;
+});
+
+
 audio.addEventListener('timeupdate', progressUpdate);
 function progressUpdate() {
     progress.style.width = (100 * this.currentTime) / this.duration + '%';
@@ -26,7 +46,7 @@ moveBar.addEventListener('pointermove', function(e) {
         setW = (100 * offsX) / moveW;
     
     hover.style.width = minMax(setW, 0, 100) + '%';
-})
+});
 
 
 

@@ -16,7 +16,7 @@ let   img = document.querySelector('.image'),
 let SongID = 0,
     preID = [];
 let audio = new Audio(base.song[SongID]);
-
+let sections = document.getElementsByClassName('section');
 
 bt.addEventListener('click', function(e) {
     let btn = e.target;
@@ -32,8 +32,12 @@ bt.addEventListener('click', function(e) {
         }
     } else if (btn.classList.contains('next')) {
         switcher(SongID + 1);
+        sections[preID.at(-2)].classList.remove('ugu-played');
+        document.querySelector('.ugu').classList.add('ugu-played');
     } else if (btn.classList.contains('prew')) {
         switcher(SongID - 1);
+        sections[preID.at(-2)].classList.remove('ugu-played');
+        document.querySelector('.ugu').classList.add('ugu-played');
     } else if (btn.classList.contains('repeat')) {
         
         
@@ -73,7 +77,6 @@ function loadMeta(toPlay) {
         loadList(playListMain);
         addE(playListMain);
     }
-    console.log(preT);
     //preload images
     let i = SongID;
     while (i < SongID + 3) {
@@ -103,7 +106,6 @@ function loadMeta(toPlay) {
             }, 200); 
         } 
     }
-    
 
     
     //change text
@@ -112,12 +114,13 @@ function loadMeta(toPlay) {
     
     
     //change audio time
-    duration.innerHTML = '00:00';
-    audio.addEventListener('loadedmetadata', function() {
-        current.innerHTML = '00:00';
-        duration.innerHTML = formatted(audio.duration);
-    })
-                           
+    
+//    duration.innerHTML = '-00:00';
+//    audio.addEventListener('loadedmetadata', function() {
+//        current.innerHTML = '00:00';
+//        duration.innerHTML = formatted(audio.duration);
+//        console.log(audio.duration);       
+//    })             
     
     //text to centre
     textAnim();
@@ -287,6 +290,12 @@ function onWheel(e) {
     
     if (audio.volume >= 1) {
         back = audio.volume;
+    }
+    
+    if (audio.volume == 0) {
+        volBtn.classList.add('muted');
+    } else {
+        volBtn.classList.remove('muted');
     }
 }
 

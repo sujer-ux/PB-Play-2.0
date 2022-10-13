@@ -14,7 +14,7 @@ function loadList(elem) {
                     <div class="track-name">${base.trackItem[i]}</div>
                     <div class="art-name">${base.trackArtst[i]}</div>
                 </div>
-                <div class="btnMore">...</div>
+                <div class="btnMore">${formatted(base.duration[i])}</div>
             </div>
         `);
         i++

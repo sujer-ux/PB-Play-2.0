@@ -30,7 +30,7 @@ body {
 
 .logo-bar {
     position: absolute;
-    top: 34px;
+    top: 5.2%;
     left: calc(50% + 169px);
     width: 48px;
     height: 140px;
@@ -92,14 +92,11 @@ body {
 }
 
 .bottom {
-    margin-top: 417px;
+    margin-top: 421px;
     color: rgba(255, 255, 255, 0.08);
     text-align: center;
 }
 
-.bottom p {
-    padding:1px 10px;
-}
 
 .peaper {
     width: 100%;
