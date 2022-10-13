@@ -67,6 +67,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 7px;
+    touch-action: none;
 }
 
 .main::-webkit-scrollbar {
