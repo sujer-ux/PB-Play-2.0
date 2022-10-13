@@ -26,7 +26,6 @@ for (const C of [Array, String, TypedArray]) {
                             enumerable: false,
                             configurable: true });
 }
-alert('[].at added');
 
 
 simpleBarS.addEventListener('scroll', function() {
