@@ -58,7 +58,7 @@
 .textBlock .art-name {
     font-size: 11px;
 /*    color: #ff7c7c;*/
-    color: #bcbcbc;
+    color: #9a9a9a;
 }
 
 .btnMore {
@@ -74,8 +74,8 @@
 
 .ugu {
     transition: all .2s;
-    background-color: rgb(29, 29, 29);
-    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.27);
+    background-color: rgb(25, 25, 25);
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 .play-ico {
