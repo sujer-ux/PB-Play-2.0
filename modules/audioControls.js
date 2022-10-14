@@ -10,7 +10,8 @@ let   img = document.querySelector('.image'),
       volEv = document.querySelector('.setVol'),
       volMove = document.querySelector('.toVol'),
       volValue = document.getElementsByClassName('value'),
-      muteBtn = document.querySelector('.mute');
+      muteBtn = document.querySelector('.mute'),
+      dwn = document.querySelector('#download');
 
 
 let SongID = 0,
@@ -38,12 +39,42 @@ bt.addEventListener('click', function(e) {
         switcher(SongID - 1);
         sections[preID.at(-2)].classList.remove('ugu-played');
         document.querySelector('.ugu').classList.add('ugu-played');
-    } else if (btn.classList.contains('repeat')) {
+    } else if (btn.classList.contains('more-event')) {
+        let subMenu = btn.closest('.more').querySelector('.sub');
+        if (subMenu.classList.contains('more-active')) {
+            subMenu.classList.remove('more-active');
+            btn.style.backgroundColor = '';
+            window.clearTimeout(window.timeoutID);
+        } else {
+            subMenu.classList.add('more-active');
+            btn.style.backgroundColor = 'rgb(38, 38, 38)';
+            
+            window.timeoutID = window.setTimeout(function() {
+                subMenu.classList.remove('more-active');
+                btn.style.backgroundColor = '';
+                window.clearTimeout(window.timeoutID);
+            }, 3450);
+            
+            document.addEventListener('click', hideToClick);
+            simpleBarS.addEventListener('scroll', hideToScrll);
+        }
         
+        function hideToClick(e) {
+            if (!e.target.closest('.more')) {
+                subMenu.classList.remove('more-active');
+                btn.style.backgroundColor = '';
+                document.removeEventListener('click', hideToClick);
+                window.clearTimeout(window.timeoutID);
+            }
+        }
+
         
-    } else if (btn.classList.contains('vol')) {
-        
-        
+        function hideToScrll(e) {
+            subMenu.classList.remove('more-active');
+            btn.style.backgroundColor = '';
+            simpleBarS.removeEventListener('scroll', hideToScrll);
+            window.clearTimeout(window.timeoutID);
+        }
     }
 })
 
@@ -121,6 +152,8 @@ function loadMeta(toPlay) {
     switchSection(playListMain, preID[preID.length - 1]);
 
     
+    dwn.setAttribute('href', base.song[SongID]);
+    
     return preT;
 }
 
@@ -159,6 +192,7 @@ function formatted(input) {
 volBtn.addEventListener('pointerover', function(e) {
     volWrap.style.height = '102px';
     volWrap.style.opacity = 1;
+    volBtn.style.backgroundColor = '#262626';
 })
 
 volBtn.addEventListener('pointerout', hideBlock)
@@ -166,6 +200,7 @@ volBtn.addEventListener('pointerout', hideBlock)
 function hideBlock(e) {
     volWrap.style.height = '0px';
     volWrap.style.opacity = 0;
+    volBtn.style.backgroundColor = null;
 }
 
 
