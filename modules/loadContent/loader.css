@@ -74,8 +74,8 @@
 
 .ugu {
     transition: all .2s;
-    background-color: rgb(25, 25, 25);
-    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+    background-color: rgb(18, 18, 18);
+/*    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);*/
 }
 
 .play-ico {
@@ -104,10 +104,10 @@
 }
 
 .over {
-    background-color: rgba(0, 0, 0, 0.1);
-    box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.13);
+/*    box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0.1);*/
 }
 
 .over-played {
-    background-color: #191919;
+    background-color: rgba(0, 0, 0, 0.13);
 }
