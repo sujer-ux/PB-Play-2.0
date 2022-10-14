@@ -31,20 +31,25 @@ bt.addEventListener('click', function(e) {
             btn.classList.remove('played');
             document.querySelector('.ugu').classList.remove('ugu-played');
         }
+        
     } else if (btn.classList.contains('next')) {
         switcher(SongID + 1);
         sections[preID.at(-2)].classList.remove('ugu-played');
         document.querySelector('.ugu').classList.add('ugu-played');
+        
     } else if (btn.classList.contains('prew')) {
         switcher(SongID - 1);
         sections[preID.at(-2)].classList.remove('ugu-played');
         document.querySelector('.ugu').classList.add('ugu-played');
+        
     } else if (btn.classList.contains('more-event')) {
         let subMenu = btn.closest('.more').querySelector('.sub');
+        
         if (subMenu.classList.contains('more-active')) {
             subMenu.classList.remove('more-active');
             btn.style.backgroundColor = '';
             window.clearTimeout(window.timeoutID);
+            
         } else {
             subMenu.classList.add('more-active');
             btn.style.backgroundColor = 'rgb(38, 38, 38)';
