@@ -7,51 +7,74 @@ let moveBar = document.querySelector('.moveBlock'),
 let moveW = moveBar.offsetWidth;
 
 
-audio.addEventListener('timeupdate', timeUpdate);
-function timeUpdate() {
-    current.innerHTML = formatted(this.currentTime);
+
+function updateTimeBlocks() {
+    
+    audio.addEventListener('timeupdate', currentUpdate);
+    function currentUpdate() {
+        current.innerHTML = formatted(this.currentTime);
+    }
+
+    
+    audio.addEventListener('loadedmetadata', function() {
+        durationUpdate();
+        audio.addEventListener('timeupdate', durationUpdate);
+    });
+
+    function durationUpdate() {
+        duration.innerHTML = `-${formatted(base.duration[SongID]
+                                            - audio.currentTime)}`;
+    }
+
+    
+    function showDurationTime() {
+        duration.addEventListener('pointerover', function() {
+            audio.removeEventListener('timeupdate', durationUpdate);
+            duration.innerHTML = formatted(base.duration[SongID]);
+        });
+        duration.addEventListener('pointerout', function() {
+            audio.addEventListener('timeupdate', durationUpdate);
+            duration.innerHTML = `-${formatted(base.duration[SongID]
+                                                - audio.currentTime)}`;
+        });
+    }
+    
+    showDurationTime();
 }
-
-audio.addEventListener('loadedmetadata', function() {
-    durationUpdate();
-    audio.addEventListener('timeupdate', durationUpdate);
-});
+updateTimeBlocks();
 
 
-function durationUpdate() {
-    duration.innerHTML = `-${formatted(base.duration[SongID] - audio.currentTime)}`;
+
+function showPreviewTimeBlock() {
+    moveBar.addEventListener('pointerover', () => hover.style.opacity = '1');
+    moveBar.addEventListener('pointerout', () => hover.style.opacity = '0');
 }
-
-duration.addEventListener('pointerover', function() {
-    audio.removeEventListener('timeupdate', durationUpdate);
-    duration.innerHTML = formatted(base.duration[SongID]);
-});
-duration.addEventListener('pointerout', function() {
-    audio.addEventListener('timeupdate', durationUpdate);
-    duration.innerHTML = `-${formatted(base.duration[SongID] - audio.currentTime)}`;
-});
+showPreviewTimeBlock();
 
 
-audio.addEventListener('timeupdate', progressUpdate);
+
 function progressUpdate() {
     progress.style.width = (100 * this.currentTime) / this.duration + '%';
 }
+audio.addEventListener('timeupdate', progressUpdate);
 
 
-moveBar.addEventListener('pointerover', () => hover.style.opacity = '1');
-moveBar.addEventListener('pointerout', () => hover.style.opacity = '0');
 
-moveBar.addEventListener('pointermove', function(e) {
-    let offsX = e.pageX - moveBar.getBoundingClientRect().x,
-        setW = (100 * offsX) / moveW;
-    
-    hover.style.width = minMax(setW, 0, 100) + '%';
-});
+function showMouseover() {
+    moveBar.addEventListener('pointermove', function(e) {
+        let offsX = e.pageX - moveBar.getBoundingClientRect().x,
+            setW = (100 * offsX) / moveW;
+
+        hover.style.width = minMax(setW, 0, 100) + '%';
+    });
+}
+showMouseover();
+
+
 
 
 
 moveBar.addEventListener('pointerdown', mainF);
-
 function mainF(e) {
     move(e, this);
     timeMove(e);
@@ -77,6 +100,8 @@ function mainF(e) {
         }, 1);
     }
     
+    
+    
     function timeMove(e) {
         let offsX = e.pageX - moveBar.getBoundingClientRect().x,
             preCrnt = audio.duration * (offsX / moveW),
@@ -86,13 +111,13 @@ function mainF(e) {
         time.style.left = minMax(setHW, 0, 87) + '%'
     }
     
+    
+    
     function setTime(e) {
         let offsX = e.pageX - moveBar.getBoundingClientRect().x;
         audio.currentTime = audio.duration * offsX / moveW;
     }
 }
-
-
 
 
 
@@ -102,12 +127,6 @@ function move(e) {
     
     progress.style.width = setW + '%';
 }
-
-
-
-
-
-
 
 
 

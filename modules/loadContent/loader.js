@@ -21,6 +21,7 @@ function loadList(elem) {
     }
 }
 
+
 function addE(elem) {
     let sections = elem.getElementsByClassName('section');
     let i = 0;
@@ -60,19 +61,18 @@ function addE(elem) {
     }
 }
 
+
 function switchSection(elem, id) {
     let sections = elem.getElementsByClassName('section');
     let i = 0;
     while (i < sections.length) {
         if (Number(sections[i].getAttribute('data-id')) == id) {
             sections[i].classList.add('ugu');
-//            console.log(sections[i]);
         } else {
             sections[i].classList.remove('ugu');
         }
         i++
     }
-//    console.log(sections);
 }
 
 

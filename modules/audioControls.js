@@ -77,6 +77,7 @@ function loadMeta(toPlay) {
         loadList(playListMain);
         addE(playListMain);
     }
+    
     //preload images
     let i = SongID;
     while (i < SongID + 3) {
@@ -111,16 +112,7 @@ function loadMeta(toPlay) {
     //change text
     trackName.innerHTML = base.trackItem[SongID];
     artName.innerHTML = base.trackArtst[SongID];
-    
-    
-    //change audio time
-    
-//    duration.innerHTML = '-00:00';
-//    audio.addEventListener('loadedmetadata', function() {
-//        current.innerHTML = '00:00';
-//        duration.innerHTML = formatted(audio.duration);
-//        console.log(audio.duration);       
-//    })             
+             
     
     //text to centre
     textAnim();
