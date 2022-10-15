@@ -168,7 +168,13 @@ function play(audio) {
 }
 
 audio.onended = function() {
-    stop(audio);
+    if (SongID < base.song.length - 1) {
+        switcher(SongID + 1);
+        sections[preID.at(-2)].classList.remove('ugu-played');
+        document.querySelector('.ugu').classList.add('ugu-played');
+    } else if (SongID == base.song.length - 1) {
+        stop(audio);
+    }
 }
 
 function stop(elem) {
