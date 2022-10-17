@@ -1,5 +1,5 @@
 let playListMain = document.querySelector('.playList');
-
+let sections = {};
 
 function loadList(elem) {
     let i = 0;
@@ -19,11 +19,11 @@ function loadList(elem) {
         `);
         i++
     }
+    sections = elem.getElementsByClassName('section');
 }
 
 
 function addE(elem) {
-    let sections = elem.getElementsByClassName('section');
     let i = 0;
     while (i < sections.length) {
         sections[i].addEventListener('click', function() {
@@ -63,7 +63,6 @@ function addE(elem) {
 
 
 function switchSection(elem, id) {
-    let sections = elem.getElementsByClassName('section');
     let i = 0;
     while (i < sections.length) {
         if (Number(sections[i].getAttribute('data-id')) == id) {

@@ -52,7 +52,9 @@ a {
 }
 
 .simplebar-content-wrapper {
-    overflow: -moz-scrollbars-none;
+    overflow: -moz-scrollbars-none;]
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .top {

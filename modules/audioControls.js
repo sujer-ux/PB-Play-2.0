@@ -17,7 +17,6 @@ let   img = document.querySelector('.image'),
 let SongID = 0,
     preID = [];
 let audio = new Audio(base.song[SongID]);
-let sections = document.getElementsByClassName('section');
 
 bt.addEventListener('click', function(e) {
     let btn = e.target;
@@ -338,6 +337,38 @@ function onWheel(e) {
 }
 
 window.onload = loadMeta;
+
+
+
+function wrapper() {
+    let buffer = audio.buffered.end(0);
+    audio.ontimeupdate = () => loader();
+    function loader() {
+        if (buffer != audio.buffered.end(0)) {
+            console.log(audio.buffered.end(0));
+            buffer = audio.buffered.end(0);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
