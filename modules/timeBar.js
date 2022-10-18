@@ -73,15 +73,17 @@ showMouseover();
 
 
 audio.addEventListener('play', function() {
+    ts.style.left = 0;
     audio.addEventListener('progress', loadProgress);
+    setTimeout(function() {
+        ts.style.right = 100 - audio.buffered.end(0) / (audio.duration / 100) + '%';
+    }, 1);
 })
 
 function loadProgress() {
     if (audio.buffered.length > 0) {
-        ts.style.left = 0;
         ts.style.right = 100 - audio.buffered.end(0) / (audio.duration / 100) + '%';
     }
-    
 }
 
 
