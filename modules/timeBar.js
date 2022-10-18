@@ -5,7 +5,7 @@ let moveBar = document.querySelector('.moveBlock'),
 
 
 let moveW = moveBar.offsetWidth;
-
+const ts = document.querySelector('.ts');
 
 
 function updateTimeBlocks() {
@@ -70,6 +70,19 @@ function showMouseover() {
 }
 showMouseover();
 
+
+
+audio.addEventListener('play', function() {
+    audio.addEventListener('progress', loadProgress);
+})
+
+function loadProgress() {
+    if (audio.buffered.length > 0) {
+        ts.style.left = 0;
+        ts.style.right = 100 - audio.buffered.end(0) / (audio.duration / 100) + '%';
+    }
+    
+}
 
 
 
