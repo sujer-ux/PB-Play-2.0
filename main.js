@@ -54,7 +54,7 @@ function textAnim(ani) {
     
     if (MAIN.classList.contains('mini')) {
         while (i < names.length) {
-            names[i].style.left = '42px';
+            names[i].style.left = '40px';
             i++;
         }
     } else {

@@ -192,14 +192,14 @@ a {
 }
 
 .mini .track {
-    font-size: 14px;
+    font-size: 13px;
     top: -2px;
 }
 
 
 .mini .art {
-    font-size: 13px;
-    top: -4px;
+    font-size: 12px;
+    top: -3px;
     z-index: 2;
 }
 
