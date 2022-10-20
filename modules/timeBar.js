@@ -96,6 +96,7 @@ function mainF(e) {
     time.style.opacity = '1';
     audio.removeEventListener('timeupdate', progressUpdate);
     document.querySelector('body').classList.add('un-select');
+    document.querySelector('body').style.cursor = 'pointer';
     document.addEventListener('pointermove', move);
     document.addEventListener('pointermove', timeMove);
     document.addEventListener('pointerup', reEvents);
@@ -105,6 +106,7 @@ function mainF(e) {
         document.removeEventListener('pointermove', timeMove);
         audio.addEventListener('timeupdate', progressUpdate);
         document.querySelector('body').classList.remove('un-select');
+        document.querySelector('body').style.cursor = 'auto';
         
         time.style.opacity = '0';
         

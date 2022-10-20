@@ -26,7 +26,6 @@ a {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    cursor: pointer;
 }
 
 .app {
@@ -104,6 +103,7 @@ a {
     background-size: 30%;
 }
 
+
 .mini .image {
     background-size: 66%;
     transition: all 0.2s;
@@ -116,6 +116,7 @@ a {
     position: absolute;
     opacity: 1;
     transition: opacity .2s;
+    pointer-events: none;
 }
 
 .mini .image {

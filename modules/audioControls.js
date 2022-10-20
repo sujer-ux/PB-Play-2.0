@@ -103,10 +103,10 @@ function loadMeta(toPlay) {
     preID[preID.length] = SongID;
     var preT = preID.at(-2);
     
-    //change audio
+    
     audio.src = base.song[SongID];
     
-    //if play
+    
     if (toPlay === 'play') {
         play(audio);
     } else {
@@ -114,54 +114,57 @@ function loadMeta(toPlay) {
         addE(playListMain);
     }
     
-    //preload images
-    let i = SongID;
-    while (i < SongID + 3) {
-        let image = new Image();
-        image.src = base.image[i];
-        i++
-    }
-    
-    
-    //change image
-    var image = new Image();
-    
-    if (base.image[SongID] != '') {
-        image.src = base.image[SongID];
-        image.addEventListener('load', function() {
-            img.append(image);
-        });
-    }
-    
-    
-    if (preT != undefined) {
-        if (base.image[preT] != '') {
-            let images = img.children;
-            images[0].style.opacity = 0;
-            setTimeout(() => {
-                images[0].remove();
-            }, 200); 
-        } 
-    }
 
+    function preloadIMG() {
+        let i = SongID;
+        while (i < SongID + 3) {
+            let image = new Image();
+            image.src = base.image[i];
+            i++
+        }
+    }
+    preloadIMG();
     
-    //change text
-    trackName.innerHTML = base.trackItem[SongID];
-    artName.innerHTML = base.trackArtst[SongID];
-             
     
-    //text to centre
-    textAnim();
+    function changeIMG() {
+        var image = new Image();
+
+        if (base.image[SongID] != '') {
+            image.src = base.image[SongID];
+            image.addEventListener('load', function() {
+                img.append(image);
+            });
+        }
+
+
+        if (preT != undefined) {
+            if (base.image[preT] != '') {
+                let images = img.children;
+                images[0].style.opacity = 0;
+                setTimeout(() => {
+                    images[0].remove();
+                }, 200); 
+            } 
+        }
+    }
+    changeIMG();
+
+
+    function changeMETA() {
+        trackName.innerHTML = base.trackItem[SongID];
+        artName.innerHTML = base.trackArtst[SongID];
+
+        textAnim();
+
+        dwn.setAttribute('href', base.song[SongID]);
+
+        ts.style.transition = 'none';
+        ts.style.right = 100 + '%';
+        ts.style.transition = 'right 0.2s';
+    }
+    changeMETA();
     
-    //
     switchSection(playListMain, preID[preID.length - 1]);
-
-    
-    dwn.setAttribute('href', base.song[SongID]);
-    
-    ts.style.transition = 'none';
-    ts.style.right = 100 + '%';
-    ts.style.transition = 'right 0.2s';
     
     return preT;
 }
@@ -228,10 +231,12 @@ volEv.addEventListener('pointerdown', function(e) {
     document.addEventListener('pointermove', setVome);
     document.addEventListener('pointerup', pup);
     document.querySelector('body').classList.add('un-select');
+    document.querySelector('body').style.cursor = 'pointer';
     
     function pup(e) {
         document.removeEventListener('pointermove', setVome);
         document.querySelector('body').classList.remove('un-select');
+        document.querySelector('body').style.cursor = 'auto';
         volBtn.addEventListener('pointerout', hideBlock);
         if (audio.volume >= 1) {
             back = audio.volume;
