@@ -1,5 +1,6 @@
 let base = {
     trackItem: [
+        'Кент',
         'Утро которым мы умрём',
         'Love Will Tear Apart',
         'August',
@@ -22,6 +23,7 @@ let base = {
         'Взгляд с экрана',
     ],
     trackArtst: [
+        'KSB muzic',
         'Mujuice',
         'Alicia Widar',
         'Intelligency',
@@ -44,6 +46,7 @@ let base = {
         'Наутилус Помпилиус',
     ],
     image: [
+        'media/thumbnails_350/KSB muzic-Прессвятой попс-2024.jpg',
         'media/thumbnails_350/4_350.jpg',
         'media/thumbnails_350/0_350.jpg',
         'media/thumbnails_350/17_350.jpg',
@@ -66,6 +69,7 @@ let base = {
         'media/thumbnails_350/8_350.jpg',
     ],
     image60: [
+        'media/thumbnails_60/KSB muzic-Прессвятой попс-2024.jpg',
         'media/thumbnails_60/4_60.jpg',
         'media/thumbnails_60/0_60.jpg',
         'media/thumbnails_60/17_60.jpg',
@@ -88,6 +92,7 @@ let base = {
         'media/thumbnails_60/8_60.jpg',
     ],
     song: [
+        'media/songs/KSB muzic-Кент-2024.mp3',
         'media/songs/Утро которым мы умрём   Mujuice.mp3',
         'media/songs/widar_love.mp3',
         'media/songs/August   Intelligency.mp3',
@@ -110,6 +115,7 @@ let base = {
         'media/songs/Взгляд_с_экрана_Наутилус_Помпилиус.mp3',
     ],
     duration: [
+        164.337392290,
         257.044898,
         165.433469,
         207.386122,
