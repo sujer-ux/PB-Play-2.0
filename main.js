@@ -33,7 +33,7 @@ simpleBarS.addEventListener('scroll', function() {
     let setH = peaperH - simpleBarS.scrollTop;
     
     function step() {
-        function setS(n) { PEAPER.style.height = n + 'px'};
+        function setS(n) { PEAPER.style.maxHeight = n + 'px'};
         if (setH <= 50) {
             setH = 50;
             setS(setH);
